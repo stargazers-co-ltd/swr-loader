@@ -1,6 +1,6 @@
 {
 	"name": "swr-loader",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "ux-centric data loading and caching",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
@@ -10,6 +10,11 @@
 			"require": "./dist/index.js",
 			"import": "./dist/index.mjs",
 			"types": "./dist/index.d.ts"
+		},
+		"./adapters/idb": {
+			"require": "./dist/adapters/idb.js",
+			"import": "./dist/adapters/idb.mjs",
+			"types": "./dist/adapters/idb.d.ts"
 		}
 	},
 	"files": [
@@ -46,9 +51,8 @@
 		"react": "^18.2.0",
 		"react-router-dom": "^6.16.0",
 		"tsup": "^7.1.0",
-		"typescript": "^5.1.6"
-	},
-	"dependencies": {
+		"typescript": "^5.1.6",
 		"idb": "^7.1.1"
-	}
+	},
+	"dependencies": {}
 }

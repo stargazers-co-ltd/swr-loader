@@ -6,4 +6,5 @@ export default defineConfig({
 	dts: true,
 	format: ['esm', 'cjs'],
 	external: ['react-router-dom', 'react'],
+	minify: true,
 });

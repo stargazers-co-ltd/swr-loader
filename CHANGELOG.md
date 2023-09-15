@@ -1,5 +1,11 @@
 # react-router-typesafe
 
+## 0.1.0
+
+### Minor Changes
+
+- Initial implementation of swr and idb adapter
+
 ## 1.2.0
 
 ### Minor Changes

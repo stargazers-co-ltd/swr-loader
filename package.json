@@ -1,6 +1,6 @@
 {
 	"name": "swr-loader",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "ux-centric data loading and caching",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",

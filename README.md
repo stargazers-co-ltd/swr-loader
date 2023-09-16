@@ -49,6 +49,9 @@ const loader = makeLoader(async () => {
 	});
 });
 
+> **Note**
+> You will have to `await` swr so that the ui-blocking part can be resolved (the cache) prior to rendering, but the fresh data will still be sent as an unfulfilled promise.
+
 // automatically handles cached data, loading states, and errors, obeys `onError` behaviour
 const Component = () => {
     const { posts } = useLoaderData<typeof loader>();

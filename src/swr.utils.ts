@@ -18,13 +18,15 @@ type SWROptions<TData, TError extends SWRErrorBehaviour = SWRErrorBehaviour> = {
 type CacheAdapterFnParams = Pick<SWROptions<unknown>, 'cacheKey' | 'onError' | 'maxAge'>;
 
 export type SWRCacheAdapter = {
+	/** Returns a single item from the cache where `cacheKey` matches exactly the key in the cache. */
 	get: (params: Pick<CacheAdapterFnParams, 'cacheKey'>) => PotentiallyPromise<{ updatedAt: number; data: any } | null>;
+	/** Updates a single item from the cache where `cacheKey` matches exactly the key in the cache. */
 	set: (
 		params: Pick<CacheAdapterFnParams, 'cacheKey'> & { newCache: { updatedAt: number; data: any } },
 	) => PotentiallyPromise<void>;
-	invalidate: (cacheKey: SWRCacheKey) => PotentiallyPromise<void>;
-
-	clear: (cacheKey: SWRCacheKey) => PotentiallyPromise<void>;
+	/** Invalidates all cache items which the keys start with `partialCacheKey` */
+	invalidate: (partialCacheKey: SWRCacheKey) => PotentiallyPromise<void>;
+	/** Resets the whole cache. */
 	reset: () => PotentiallyPromise<void>;
 };
 

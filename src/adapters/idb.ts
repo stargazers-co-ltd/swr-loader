@@ -67,10 +67,6 @@ export const createIDBAdapter = (params: CreateIDBAdapterParams) => {
 				await db.put(params.storeName, value);
 			}
 		},
-		clear: async (key: IDBValidKey[]) => {
-			const db = await dbPromise;
-			return db.delete(params.storeName, IDBKeyRange.lowerBound(key));
-		},
 		reset: async () => {
 			const db = await dbPromise;
 			return db.clear(params.storeName);

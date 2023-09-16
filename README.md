@@ -31,7 +31,6 @@ Here’s an example of how you can cache filtered data.
 
 ```js
 import { makeLoader, useLoaderData } from 'react-router-typesafe';
-import { SWR } from "swr-loader";
 import { swr } from './swr';
 
 const loader = makeLoader(async () => {
@@ -50,6 +49,8 @@ const loader = makeLoader(async () => {
 });
 
 // automatically handles cached data, loading states, and errors, obeys `onError` behaviour
+import { SWR } from "swr-loader/react";
+
 const Component = () => {
 const { posts } = useLoaderData<typeof loader>();
 

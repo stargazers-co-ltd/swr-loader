@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-typesafe';
-import { SWR } from 'swr-loader';
+import { SWR } from 'swr-loader/react';
 import './App.css';
 import { loader } from './app.loader';
 

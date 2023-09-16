@@ -1,5 +1,11 @@
 # react-router-typesafe
 
+## 0.2.1
+
+### Patch Changes
+
+- Fix package export reference to `/react`
+
 ## 0.2.0
 
 ### Minor Changes

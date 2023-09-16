@@ -49,14 +49,9 @@ const loader = makeLoader(async () => {
 	});
 });
 
-> **Note**
-> You will have to `await` swr so that the ui-blocking part can be resolved (the cache) prior to rendering, but the fresh data will still be sent as an unfulfilled promise.
-
-See the full example [here](/examples/vite-react).
-
 // automatically handles cached data, loading states, and errors, obeys `onError` behaviour
 const Component = () => {
-    const { posts } = useLoaderData<typeof loader>();
+const { posts } = useLoaderData<typeof loader>();
 
     return <SWR
                 data={posts}
@@ -64,11 +59,18 @@ const Component = () => {
                 loadingElement={<PostsSkeleton/>}
                 // will render if there’s an error loading the data and there is no cache
                 errorElement={<ErrorView heading="Error loading matches" />}
-				>
-					{posts => <ul>{posts.map(posts => <li key={post.id}>{post.title}</li>)}</ul>}
+    			>
+    				{posts => <ul>{posts.map(posts => <li key={post.id}>{post.title}</li>)}</ul>}
             </SWR>
+
 }
+
 ```
+
+> **Note**
+> You will have to `await` swr so that the ui-blocking part can be resolved (the cache) prior to rendering, but the fresh data will still be sent as an unfulfilled promise.
+
+See the full example [here](/examples/vite-react).
 
 ### Invalidating the cache
 

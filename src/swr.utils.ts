@@ -49,7 +49,7 @@ export const createSWR = (params: CreateSWRLoaderParams) => {
 			cached: dataFromCache ? { ...dataFromCache, status: 'cached' } : null,
 			fresh: (async () => {
 				const needsRevalidation = !dataFromCache || Date.now() - dataFromCache.updatedAt > cacheOptions.maxAge;
-				if (!needsRevalidation) return dataFromCache;
+				if (!needsRevalidation) return { ...dataFromCache, status: 'cached' };
 
 				try {
 					params.beforeSet?.(cacheOptions);

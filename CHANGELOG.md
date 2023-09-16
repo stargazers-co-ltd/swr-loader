@@ -1,5 +1,16 @@
 # react-router-typesafe
 
+## 0.2.0
+
+### Minor Changes
+
+- 06000b4: Moved `SWR` component to `swr-loader/react`
+- 06000b4: Implement zustand adapter
+
+### Patch Changes
+
+- 06000b4: Remove unused `clear` function from adapter configuration
+
 ## 0.1.3
 
 ### Patch Changes

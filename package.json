@@ -1,5 +1,9 @@
 {
 	"private": true,
+	"workspaces": [
+		"packages/*",
+		"examples/*"
+	],
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
@@ -12,6 +16,6 @@
 		"turbo": "^1.10.7",
 		"typescript": "5.0.4"
 	},
-	"packageManager": "pnpm@7.15.0",
+	"packageManager": "bun@latest",
 	"name": "swr-loader-monorepo"
 }

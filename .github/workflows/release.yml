@@ -20,7 +20,7 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Creating .npmrc
+      - name: Create .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN

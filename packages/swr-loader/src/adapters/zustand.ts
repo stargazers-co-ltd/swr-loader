@@ -23,16 +23,16 @@ export const createZustandAdapter = ({ createStore }: CreateZustandAdapterParams
 			return { updatedAt: cachedData.updatedAt, data: cachedData.data };
 		},
 		set: async ({ cacheKey, newCache }) => {
-			const cachedData = cacheStore.getState().cache;
-			if (!cachedData) return;
-
 			cacheStore.setState(state => {
-				const itemToUpdate = state.cache.find(({ key }) => equals(key, cacheKey));
-				if (!itemToUpdate) return state;
-
-				itemToUpdate.data = newCache.data;
-				itemToUpdate.updatedAt = newCache.updatedAt;
-				return state;
+				const draft = structuredClone(state.cache);
+				const itemToUpdate = draft.find(({ key }) => equals(key, cacheKey));
+				if (itemToUpdate) {
+					itemToUpdate.data = newCache.data;
+					itemToUpdate.updatedAt = newCache.updatedAt;
+				} else {
+					draft.push({ key: cacheKey, data: newCache.data, updatedAt: newCache.updatedAt });
+				}
+				return { cache: draft };
 			});
 		},
 		invalidate: async partialCacheKey => {
@@ -44,7 +44,7 @@ export const createZustandAdapter = ({ createStore }: CreateZustandAdapterParams
 				itemsToInvalidate.forEach(item => {
 					item.updatedAt = 0;
 				});
-				return state;
+				return structuredClone(state);
 			});
 		},
 		reset: async () => {

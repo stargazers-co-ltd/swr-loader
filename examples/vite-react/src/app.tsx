@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-typesafe';
 import { SWR } from 'swr-loader/react';
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
 						);
 					}}
 				</SWR>
+				<Link to="/">Trigger loaders</Link>
 			</div>
 		</main>
 	);

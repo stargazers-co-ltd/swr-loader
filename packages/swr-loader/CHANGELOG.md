@@ -1,5 +1,11 @@
 # react-router-typesafe
 
+## 0.3.0
+
+### Minor Changes
+
+- Add memory adapter, fix zustand adapter setting logic
+
 ## 0.2.1
 
 ### Patch Changes

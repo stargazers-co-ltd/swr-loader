@@ -106,9 +106,25 @@ invalidate(['posts', 'list']);
 Stores cached data in IndexedDB, has wide browser support. Client-side only, as IndexedDB is not available in server environments.
 
 ```js
-import { createIDBAdapter } from 'swr-loader';
+import { createIDBAdapter } from 'swr-loader/adapters/idb';
+import { createSWR } from 'swr-loader';
 
-createIDBAdapter({ dbName: 'stargaze', storeName: 'data_cache' }),
+export const { swr, invalidate } = createSWR({
+	cacheAdapter: createIDBAdapter({ dbName: 'stargaze', storeName: 'data_cache' });
+});
+```
+
+### Memory
+
+Stores cached data in a declared `Map` variable within closure-scope. Client-side only, as closure scope cannot be shared by server and client environments.
+
+```js
+import { createMemoryAdapter } from 'swr-loader/adapters/memory';
+import { createSWR } from 'swr-loader';
+
+export const { swr, invalidate } = createSWR({
+	cacheAdapter: createIDBAdapter({ dbName: 'stargaze', storeName: 'data_cache' }),
+});
 ```
 
 ### Redis

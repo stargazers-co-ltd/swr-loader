@@ -10,6 +10,9 @@
 			"dependsOn": ["^build"],
 			"cache": false,
 			"persistent": true
+		},
+		"release": {
+			"cache": false
 		}
 	}
 }

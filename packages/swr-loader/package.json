@@ -37,7 +37,7 @@
 	],
 	"scripts": {
 		"build": "tsup",
-		"release": "bun run build && changeset publish"
+		"release": "bun run build && cd ../.. && changeset publish"
 	},
 	"keywords": [
 		"react",

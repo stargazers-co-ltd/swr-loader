@@ -1,5 +1,11 @@
 # react-router-typesafe
 
+## 0.3.2
+
+### Patch Changes
+
+- Docs: move readme to package so it shows on npm
+
 ## 0.3.1
 
 ### Patch Changes
